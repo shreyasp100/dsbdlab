@@ -1,0 +1,40 @@
+<!-- success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Success</title>
+</head>
+<body>
+  <h1>Registration Successful!</h1>
+  <div id="userDataDisplay"></div>
+
+  <script>
+    // Retrieve the stored data from local storage
+    var storedData = localStorage.getItem('userData');
+    
+    // Check if data exists
+    if (storedData) {
+      // Parse the JSON data
+      var userData = JSON.parse(storedData);
+      
+      // Display the data on the web page
+      var userDataDisplay = document.getElementById('userDataDisplay');
+      userDataDisplay.innerHTML = `
+        <p><strong>Name:</strong> ${userData.firstName} ${userData.lastName}</p>
+        <p><strong>Gender:</strong> ${userData.gender}</p>
+        <p><strong>Date of Birth:</strong> ${userData.dob}</p>
+        <p><strong>Email:</strong> ${userData.email}</p>
+      `;
+      
+      // Clear the stored data from local storage
+      localStorage.removeItem('userData');
+    } 
+    else {
+      // Display a message if no data found
+      userDataDisplay.innerHTML = '<p>No registration data found.</p>';
+    }
+  </script>
+</body>
+</html>

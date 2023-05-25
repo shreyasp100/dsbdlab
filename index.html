@@ -3,81 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Website</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Registration Form</title>
+  
 </head>
 <body>
-  <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Travel Website</a>
-   
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Destinations</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Packages</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  
-  <!-- Hero section -->
-  <section class="hero-section">
-    <div class="container text-center">
-      <h1>Explore the World</h1>
-      <p>Find your dream destination and plan your next adventure</p>
-      <form class="form-inline justify-content-center">
-        <div class="form-group mb-2">
-          <input type="text" class="form-control" placeholder="Enter a destination">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2">Search</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Featured destinations section -->
-  <section class="content">
-    <div class="container">
-      <h2>Featured Destinations</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="destination-card">
-            <img src="image/photo-1615836245337-f5b9b2303f10.jpeg" alt="Destination 1">
-            <h3>Destination 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="destination-card">
-            <img src="image/valley-view-top-manali-india-25779944.jpg" alt="Destination 2">
-            <h3>Destination 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="destination-card">
-            <img src="image/download1.jpeg" alt="Destination 3">
-            <h3>Destination 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+  <div class="container">
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
       </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender" required>
+          <option value="">Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" class="form-control" id="dob" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" required>
     </div>
-  </section>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form submission
+
+      // Get form values
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var gender = document.getElementById('gender').value;
+      var dob = document.getElementById('dob').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      // Create an object to store the data
+      var userData = {
+        firstName: firstName,
+        lastName: lastName,
+        gender: gender,
+        dob: dob,
+        email: email,
+        password: password
+      };
+
+      // Store the data in local storage
+      localStorage.setItem('userData', JSON.stringify(userData));
+
+      // Redirect to a new page or display a success message
+      window.location.href = 'new-page.html';
+    });
+
+  </script>
 </body>
 </html>

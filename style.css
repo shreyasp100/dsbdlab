@@ -1,30 +1,4 @@
-body {
-    padding-top: 60px;
-  }
 
-  .hero-section {
-    background-image: url('image/PowerfulReasons_hero.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-  }
-
-  .content {
-    padding: 40px;
-  }
-
-  .destination-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-  }
-  
-  img{
-    width: 100%;
-    height: auto;
-  }
-
+    body {
+      padding: 20px;
+    }
